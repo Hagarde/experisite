@@ -5,14 +5,13 @@ import "./Game.css"
 
 
 const Game = () => {
-
     return (
-        <div className="container">
-            <div className="column1" >
+        <div class="container">
+            <div class="column1" >
                 <h1> Data Display </h1>
                 <Data/>
             </div>
-            <div className="column2" >
+            <div class="column2" >
                 <h1>Decision Panel</h1>
                 <DecisionPanel />
             </div>

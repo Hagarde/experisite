@@ -1,13 +1,12 @@
 import React from "react";
 import { gameAction } from "../redux/feature/gameSlice";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {initGame} from '../redux/api';
 import { Link } from "react-router-dom";
 import './Acceuil.css';
 
 const Acceuil = () => {
     const dispatch = useDispatch();
-    const state = useSelector((state)=>{return state});
     
     const launchGame = async ()=> {
         const data = await initGame(); 
@@ -33,10 +32,10 @@ const Acceuil = () => {
                     <p class="lead"> Bienvenue sur notre site de recherche épidémiologique interactif ! Rejoignez-nous dans cette aventure fascinante pour comprendre comment répartir intelligemment les tests entre différentes régions touchées par une épidémie mystérieuse. </p>
                     <p class="lead">
                     <Link to={'/jeu'}>
-                    <button type="button" class="btn btn-outline-success"  onClick={()=>{launchGame()}}>
-                        Commencer le jeu ! 
-                    </button>
-                </Link>
+                        <button type="button" class="btn btn-outline-success"  onClick={()=>{launchGame()}}>
+                            Commencer le jeu ! 
+                        </button>
+                    </Link>
                     </p>
                 </main>
 

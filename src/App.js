@@ -3,7 +3,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Game from './page/Game';
 import Dashboard from './page/Dashboard.js';
 import Acceuil from './page/Acceuil.js';
-import Test from './page/Test.js'
+import Test from './page/Test.js';
+import GraphPage from './page/GraphPage';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route path="/" element={<Acceuil/>}></Route>
             <Route path="/dashboard" element={<Dashboard/>}></Route>
             <Route path='/jeu' element={<Test/>}></Route>
+            <Route path="/graph/:experienceId" element={<GraphPage/>}></Route>
           </Routes>
         </BrowserRouter>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

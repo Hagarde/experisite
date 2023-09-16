@@ -1,5 +1,4 @@
-import {createSlice, current} from "@reduxjs/toolkit";
-import * as api from '../api'
+import {createSlice} from "@reduxjs/toolkit";
 
 const population = 100000 ;
 const I0 = 50; 

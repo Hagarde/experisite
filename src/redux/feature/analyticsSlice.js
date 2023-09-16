@@ -14,14 +14,19 @@ const analyticsSlice = createSlice({
     reducers : {
         setAnalytics(state, action) {
             // attends un payload = {newTest: {XA: 0, ...}, newPositive: {XA: 0 , ...}}
-            console.log('Vous êtes entrer dans setAnalytics');
             state.newTest.XA = action.payload.newTest.XA * epsilon * population;
             state.newTest.XB = action.payload.newTest.XB * epsilon * population;
             state.newTest.YA = action.payload.newTest.YA * epsilon * population;
             state.newTest.YB = action.payload.newTest.YB * epsilon * population;
+
+            action.payload.newTest.XA *=  epsilon * population;
+            action.payload.newTest.XB *=  epsilon * population;
+            action.payload.newTest.YA *=  epsilon * population;
+            action.payload.newTest.YB *=  epsilon * population;
+
             state.newPositive = action.payload.newPositive;
             state.cumulatedPositive = sumDictionaries(state.cumulatedPositive, action.payload.newPositive);
-            state.cumulatedTests = sumDictionaries(state.cumulatedTests, action.payload.newTest);
+            state.cumulatedTest = sumDictionaries(state.cumulatedTest, action.payload.newTest);
         },
 
     }

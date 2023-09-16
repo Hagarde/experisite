@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import {useDispatch, useSelector} from "react-redux";
 import "./RangeSection.css";
 import {gameAction} from "../redux/feature/gameSlice";
@@ -12,10 +12,10 @@ const RangeSection = () => {
     const [inputValueRegionX, setInputvalueRegionX] = useState(0.5); 
     const [inputValueRegionY, setInputvalueRegionY] = useState(0.5); 
 
-    const state = useSelector((state)=>{return state});
+    const state = useSelector((state)=>{return state.game});
 
     const getNextDay = () => {
-        api.getNextDay(state.game.frame, state.game.epidemie, dispatch);
+        api.getNextDay(state.frame, state.epidemie, dispatch);
         
     }
 

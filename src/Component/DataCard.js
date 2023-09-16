@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {useSelector} from "react-redux";
+import { regionStyle, titleStyle } from "../parametre";
 
 const DataCard = (props) => {
     const regionName = props.regionName; 
@@ -17,10 +18,12 @@ const DataCard = (props) => {
     // const [variationNewCase, setVariationNewCase] = useState(''); chiant parce que modifier autre part et il faudrait voir la variation à ce moment là 
 
     // Données nécessaires pour les calculs 
-    const newPositif = useSelector((state)=>state.analytics.newPositive[regionName]);
+    const newPositif = useSelector((state)=>state.utils.newPositif[regionName]); // Calcul des réels nouveaux cas positifs
     const newTest = useSelector((state)=>state.analytics.newTest[regionName]);
     const cumulatedTest = useSelector((state)=>state.analytics.cumulatedTest[regionName]);
     const cumulatedPositive = useSelector((state)=>state.analytics.cumulatedPositive[regionName]);
+
+
 
     // Calcul des données nécessaire 
     useEffect(()=>{
@@ -37,12 +40,11 @@ const DataCard = (props) => {
         <div class="col-md-6">
             <div class="card mb-6 ">
                 <div class="card-body">
-                <p class="list-group-item"> Région {regionName}</p>
+                <p class="list-group-item" style={regionStyle[regionName]}> <div style={titleStyle}> Région {regionName} </div> </p>
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item"> Nouveaux Positives : {newPositif}</li>
-                        <li class="list-group-item"> Positivité : {positivity} {variationPositivity}</li>
-                        {accBoolean === true ? <li class="list-group-item"> Accélération : {acceleration} {variationAcceleration}</li> : ''}
-                        
+                        <li class="list-group-item"> Nouveaux Positives : {Math.floor(newPositif*10000)/100000}</li>
+                        <li class="list-group-item"> Positivité : {Math.floor(positivity*10000)/100000} {variationPositivity}</li>
+                        {accBoolean === true ? <li class="list-group-item"> Accélération : {Math.floor(acceleration*10000)/100000} {variationAcceleration}</li> : ''}
                     </ul>
                 </div>
             </div>
