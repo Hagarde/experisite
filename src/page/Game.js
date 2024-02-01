@@ -1,19 +1,67 @@
 import React from "react";
-import DecisionPanel from "../Component/DecisionPanel";
-import Data from "../Component/Data";
-import "./Game.css"
-
+import { useState, useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {gameAction} from "../redux/feature/gameSlice";
+import * as api from '../redux/api';
+import "./Game.css";
+import Card from 'react-bootstrap/Card';
+import DataCard from "../Component/DataCard";
+import Rectangle from "../Component/RectangleSection";
 
 const Game = () => {
+    const dispatch = useDispatch();
+
+    // Slider 
+
+    const [inputValueRegion, setInputvalueRegion] = useState(0.5); 
+    const [inputValueRegionX, setInputvalueRegionX] = useState(0.5); 
+    const [inputValueRegionY, setInputvalueRegionY] = useState(0.5); 
+
+    const state = useSelector((state)=>{return state.game});
+
+    const getNextDay = () => {
+        api.getNextDay(state.frame, state.epidemie, dispatch);
+        
+    }
+
+    useEffect(()=>{
+        dispatch(gameAction.updateTests([inputValueRegion, inputValueRegionX, inputValueRegionY]));
+    },[inputValueRegion,inputValueRegionX,inputValueRegionY]);
+    
     return (
-        <div class="container">
-            <div class="column1" >
-                <h1> Data Display </h1>
-                <Data/>
+        <div class="container-fluid all">
+                <Card body> Panneau de Jeu </Card>
+            <div class="row">
+                    <input type="range" max={1} min={0} step={0.01} orient="vertical" value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
             </div>
-            <div class="column2" >
-                <h1>Decision Panel</h1>
-                <DecisionPanel />
+            <div class="row second-row" style={{height: "80vh"}}>
+                <div class="col-1 slider-vertical">
+                    <input type="range" class="slider" orient="vertical" 
+                    max={1} min={0} step={0.01} value={inputValueRegionX} onChange={(e)=>{setInputvalueRegionX(e.target.value)}} /> 
+                </div>
+                <div class="col-4 ">
+                    <DataCard regionName={"XA"}/>
+                    <DataCard regionName={"XB"}/>
+                </div>
+                <div class="col ">
+                        {Rectangle("XA")}
+                        {Rectangle("XB")}
+                </div>
+                <div class="col bg-secondary">
+                        {Rectangle("YA")}
+                        {Rectangle("YB")}
+                </div>
+                <div class="col-4 ">
+                    <DataCard regionName={"YA"}/>
+                    <DataCard regionName={"YB"}/>
+                </div>
+                <div class="col-1 slider-vertical margin">
+                    <input type="range" class="slider" orient="vertical" 
+                    max={1} min={0} step={0.01} value={inputValueRegionY} onChange={(e)=>{setInputvalueRegionY(e.target.value)}} /> 
+                </div>
+            </div>
+            <div>
+                <button type="submit" onClick={()=>{getNextDay()}} value={'Valider la décision'} class="btn btn-primary">Valider</button>
             </div>
         </div>
     )

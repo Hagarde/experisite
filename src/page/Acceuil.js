@@ -21,8 +21,8 @@ const Acceuil = () => {
                     <div class="inner">
                     <h3 class="masthead-brand">AMSE</h3>
                     <nav class="nav nav-masthead justify-content-center">
-                        <a class="nav-link active" href="#">Home</a>
-                        <Link to={'/game'}><button type="button" class="btn btn-outline-secondary">Dashboard</button></Link>
+                        <Link to={'/'}><button type="button" class="btn btn-outline-secondary">Home</button></Link>
+                        <Link to={'/dashboard'}><button type="button" class="btn btn-outline-secondary">Dashboard</button></Link>
                     </nav>
                     </div>
                 </header>

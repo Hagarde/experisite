@@ -14,13 +14,16 @@ function App() {
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <link href="./page/custom.css" rel="stylesheet"></link>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
       </head>
         <BrowserRouter>
           <Routes>
             <Route path="/game" element={<Game/>}></Route>
             <Route path="/" element={<Acceuil/>}></Route>
             <Route path="/dashboard" element={<Dashboard/>}></Route>
-            <Route path='/jeu' element={<Test/>}></Route>
+            <Route path='/jeu' element={<Game/>}></Route>
             <Route path="/graph/:experienceId" element={<GraphPage/>}></Route>
           </Routes>
         </BrowserRouter>

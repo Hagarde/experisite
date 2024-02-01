@@ -37,8 +37,8 @@ const DataCard = (props) => {
     },[newPositif, newTest, cumulatedPositive, cumulatedTest,t])
     
     return (
-        <div class="col-md-6">
-            <div class="card mb-6 ">
+        <div class="col" style={{height:'50%'}}>
+            <div class="card">
                 <div class="card-body">
                 <p class="list-group-item" style={regionStyle[regionName]}> <div style={titleStyle}> Région {regionName} </div> </p>
                     <ul class="list-group list-group-flush">
