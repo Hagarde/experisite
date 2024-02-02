@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {gameAction} from "../redux/feature/gameSlice";
 import * as api from '../redux/api';
 import "./Game.css";
-import Card from 'react-bootstrap/Card';
 import DataCard from "../Component/DataCard";
 import Rectangle from "../Component/RectangleSection";
 
@@ -30,12 +29,16 @@ const Game = () => {
     
     return (
         <div class="container-fluid all">
-                <Card body> Panneau de Jeu </Card>
             <div class="row">
+                <p>
+                    Panneau de Jeu
+                </p>
+            </div>
+            <div class="row m-3">
                     <input type="range" max={1} min={0} step={0.01} orient="vertical" value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
             </div>
-            <div class="row second-row" style={{height: "80vh"}}>
-                <div class="col-1 slider-vertical">
+            <div class="row second-row" style={{height: "70vh"}}>
+                <div class="col-1 slider-vertical ">
                     <input type="range" class="slider" orient="vertical" 
                     max={1} min={0} step={0.01} value={inputValueRegionX} onChange={(e)=>{setInputvalueRegionX(e.target.value)}} /> 
                 </div>
@@ -47,7 +50,7 @@ const Game = () => {
                         {Rectangle("XA")}
                         {Rectangle("XB")}
                 </div>
-                <div class="col bg-secondary">
+                <div class="col ">
                         {Rectangle("YA")}
                         {Rectangle("YB")}
                 </div>
@@ -55,7 +58,7 @@ const Game = () => {
                     <DataCard regionName={"YA"}/>
                     <DataCard regionName={"YB"}/>
                 </div>
-                <div class="col-1 slider-vertical margin">
+                <div class="col-1 slider-vertical ">
                     <input type="range" class="slider" orient="vertical" 
                     max={1} min={0} step={0.01} value={inputValueRegionY} onChange={(e)=>{setInputvalueRegionY(e.target.value)}} /> 
                 </div>

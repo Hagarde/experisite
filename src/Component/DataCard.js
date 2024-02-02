@@ -42,6 +42,7 @@ const DataCard = (props) => {
                 <div class="card-body">
                 <p class="list-group-item" style={regionStyle[regionName]}> <div style={titleStyle}> Région {regionName} </div> </p>
                     <ul class="list-group list-group-flush">
+                        <li class="list-group-item"> Population : 1 000 000</li>
                         <li class="list-group-item"> Nouveaux Positives : {Math.floor(newPositif*10000)/100000}</li>
                         <li class="list-group-item"> Positivité : {Math.floor(positivity*10000)/100000} {variationPositivity}</li>
                         {accBoolean === true ? <li class="list-group-item"> Accélération : {Math.floor(acceleration*10000)/100000} {variationAcceleration}</li> : ''}

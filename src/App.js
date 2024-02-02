@@ -4,6 +4,7 @@ import Game from './page/Game';
 import Dashboard from './page/Dashboard.js';
 import Acceuil from './page/Acceuil.js';
 import Test from './page/Test.js';
+import Questionnaire from './page/Questionnaire.js';
 import GraphPage from './page/GraphPage';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/" element={<Acceuil/>}></Route>
             <Route path="/dashboard" element={<Dashboard/>}></Route>
             <Route path='/jeu' element={<Game/>}></Route>
+            <Route path='/questionnaire' element={<Questionnaire/>}></Route>
             <Route path="/graph/:experienceId" element={<GraphPage/>}></Route>
           </Routes>
         </BrowserRouter>
