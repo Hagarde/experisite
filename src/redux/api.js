@@ -28,9 +28,13 @@ export const getNextDay = async (frame_, epidemie_, dispatch) => {
     
 };
 
-export const getGraphData = async (id, callback)=>{
+export const getGraphData = async (id, callback, dispatch)=>{
     axios.get(URL_API+ 'experience/get/'+id)
-        .then(response => {callback(response.data)})
+        .then(response => {
+            dispatch(utilsAction.setExperience(response.data.experience));
+            dispatch(utilsAction.setEpidemie(response.data.epidemie));
+            callback(response.data)
+})
 };
 
 export const getEpidemie = async (id) => {

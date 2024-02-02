@@ -12,6 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import { useDispatch } from 'react-redux';
 
 ChartJS.register(
   CategoryScale,
@@ -24,41 +25,41 @@ ChartJS.register(
 );
 
 const Graph = (props) => {
-  const [experimentData, setExperimentData] = useState([]);
-
+  const [Data, setData] = useState({frames: [],epidemie:{}, experience:{}});
+  const dispatch = useDispatch();
   useEffect( ()=>{
     // Je requeste les data 
-    api.getGraphData(props.experienceId, setExperimentData);
+    api.getGraphData(props.experienceId, setData, dispatch);
   },[])
 
 
   const charts = ['XA', 'XB', 'YA', 'YB'].map((region, index) => {
     const regionData = {
-      labels: experimentData.map((item) => item.t), // Les étiquettes sont les valeurs t
+      labels: Data.frames.map((item) => item.t), // Les étiquettes sont les valeurs t
       datasets: [
         {
           label: `S - ${region}`,
-          data: experimentData.map((item) => item[`S${index+1}`]),
+          data: Data.frames.map((item) => item[`S${index+1}`]),
           borderColor: 'blue',
         },
         {
           label: `U - ${region}`,
-          data: experimentData.map((item) => item[`U${index+1}`]),
+          data: Data.frames.map((item) => item[`U${index+1}`]),
           borderColor: 'red',
         },
         {
           label: `P - ${region}`,
-          data: experimentData.map((item) => item[`P${index+1}`]),
+          data: Data.frames.map((item) => item[`P${index+1}`]),
           borderColor: 'yellow',
         },
         {
           label: `RU - ${region}`,
-          data: experimentData.map((item) => item[`RU${index+1}`]),
+          data: Data.frames.map((item) => item[`RU${index+1}`]),
           borderColor: 'green',
         },
         {
           label: `RP - ${region}`,
-          data: experimentData.map((item) => item[`RP${index+1}`]),
+          data: Data.frames.map((item) => item[`RP${index+1}`]),
           borderColor: 'green',
         },
       ],

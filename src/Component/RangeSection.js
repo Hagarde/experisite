@@ -16,7 +16,6 @@ const RangeSection = () => {
 
     const getNextDay = () => {
         api.getNextDay(state.frame, state.epidemie, dispatch);
-        
     }
 
     useEffect(()=>{
