@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Guide d'utilisation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ce guide explique comment démarrer le serveur et le front-end de l'application, ainsi que la façon de personnaliser les paramètres via le fichier `paramètre.js` du serveur.
 
-## Available Scripts
+## Démarrer le Serveur
 
-In the project directory, you can run:
+1. Assurez-vous d'avoir Node.js installé sur votre système.
 
-### `npm start`
+2. Ouvrez votre terminal et naviguez jusqu'au répertoire contenant le code source du serveur.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3. Installez les dépendances dans le dossier associé au serveur:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+``` bash
+cd serveur 
+npm install 
+```
 
-### `npm test`
+4. Pour démarrer le serveur :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+node serveur.js 
+```
 
-### `npm run build`
+## Démarrer le front, le site
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Assurez-vous d'avoir Node.js installé sur votre système.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+2. Ouvrez votre terminal et naviguez jusqu'au répertoire contenant le code source du serveur.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Installez les dépendances dans le dossier associé au serveur:
 
-### `npm run eject`
+``` bash
+cd serveur 
+npm install 
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Démarrer le serveur :
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+``` bash
+node server.js
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Les paramètres tels que psi, alpha et se trouvent dans le fichier `parametre.js` du serveur.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Pour commencer le questionnaire : 
 
-## Learn More
+Il va falloir modifier le fichier `Questionnaire.js`  dans le dossier Component du front.
+Ouvrez le fichier Questionnaire.js (ou créez-le s’il n’existe pas) et modifiez-le comme suit :
+Pour savoir les choses qui sont possibles de faire, il faut se référer à la documentation : 
+https://react-bootstrap.netlify.app/docs/forms/overview/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```js
+import React from "react";
+import Form from 'react-bootstrap/Form';
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+const Questionnaire = () => {
+    return (
+        <div>
+            <Form>
+                {/* Ajoutez vos questions ici */}
+                <Form.Group controlId="question1">
+                    <Form.Label>Question 1 :</Form.Label>
+                    <Form.Control type="text" placeholder="Votre question ici" />
+                </Form.Group>
 
-### Code Splitting
+                <Form.Group controlId="question2">
+                    <Form.Label>Question 2 :</Form.Label>
+                    <Form.Control type="text" placeholder="Votre question ici" />
+                </Form.Group>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+                {/* Ajoutez plus de questions si nécessaire */}
 
-### Analyzing the Bundle Size
+                <button type="submit">Envoyer</button>
+            </Form>
+        </div>
+    );
+}
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default Questionnaire;
+```
