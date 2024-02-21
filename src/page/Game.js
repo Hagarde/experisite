@@ -35,11 +35,11 @@ const Game = () => {
                 </p>
             </div>
             <div class="row m-3">
-                    <input type="range" max={1} min={0} step={0.01} orient="vertical" value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
+                    <input type="range" max={1} min={0} step={0.01} value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
             </div>
             <div class="row second-row" style={{height: "70vh"}}>
                 <div class="col-1 slider-vertical ">
-                    <input type="range" class="slider" orient="vertical" 
+                    <input type="range" class="slider sideSlider" orient="vertical"  
                     max={1} min={0} step={0.01} value={inputValueRegionX} onChange={(e)=>{setInputvalueRegionX(e.target.value)}} /> 
                 </div>
                 <div class="col-4 ">
@@ -59,11 +59,11 @@ const Game = () => {
                     <DataCard regionName={"YB"}/>
                 </div>
                 <div class="col-1 slider-vertical ">
-                    <input type="range" class="slider" orient="vertical" 
+                    <input type="range" class="slider sideSlider" orient="vertical" 
                     max={1} min={0} step={0.01} value={inputValueRegionY} onChange={(e)=>{setInputvalueRegionY(e.target.value)}} /> 
                 </div>
             </div>
-            <div>
+            <div style={{margin: '5px'}}>
                 <button type="submit" onClick={()=>{getNextDay()}} value={'Valider la décision'} class="btn btn-primary">Valider</button>
             </div>
         </div>

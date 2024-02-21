@@ -7,10 +7,11 @@ const Rectangle = (regionName) => {
     // Récupérez la valeur du store Redux pour la hauteur des rectangles
     const rectangleHeight = useSelector((state) => { return {'XA': state.game.frame.XA,'XB': state.game.frame.XB,'YA': state.game.frame.YA,'YB': state.game.frame.YB}});
     return (
-      <div class=''style={{ height:'50%', display: 'flex', alignItems: 'flex-end'}}>
+      <div class=''style={{ height:'50%', display: 'flex', flexDirection : 'column-reverse' ,alignItems: 'flex-end'}}>
+        <div>{regionName}</div>
         <div 
           style={{ height: rectangleHeight[regionName]*200+'px', background: regionStyle[regionName].background, marginBottom: '1px'}}>
-          <div style={titleStyle}>{regionName}</div>
+          <div style={titleStyle}> </div>
         </div>
       </div>
     );
