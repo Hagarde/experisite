@@ -1,30 +1,18 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {gameAction} from "../redux/feature/gameSlice";
-import * as api from '../redux/api';
+import { useState } from "react";
+import { useSelector} from "react-redux";
 import "./Game.css";
 import DataCard from "../Component/DataCard";
 import Rectangle from "../Component/RectangleSection";
 
 const Game = () => {
-    const dispatch = useDispatch();
-
     // Slider 
 
     const [inputValueRegion, setInputvalueRegion] = useState(0.5); 
     const [inputValueRegionX, setInputvalueRegionX] = useState(0.5); 
     const [inputValueRegionY, setInputvalueRegionY] = useState(0.5); 
 
-    const state = useSelector((state)=>{return state.game});
-
-    const getNextDay = () => {
-        api.getNextDay(state.frame, state.epidemie, dispatch);
-    }
-
-    useEffect(()=>{
-        dispatch(gameAction.updateTests([inputValueRegion, inputValueRegionX, inputValueRegionY]));
-    },[inputValueRegion,inputValueRegionX,inputValueRegionY]);
+    const state = useSelector((state)=>{return state.game}); // Valeur factices pour 
     
     return (
         <div class="container-fluid all">
@@ -34,7 +22,7 @@ const Game = () => {
                 </p>
             </div>
             <div class="row m-3">
-                    <input class="horizontal-slider" type="range" max={1} min={0} step={0.01} value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
+                    <input type="range" max={1} min={0} step={0.01} value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
             </div>
             <div class="row second-row" style={{height: "70vh"}}>
                 <div class="col-1 slider-vertical ">
@@ -63,7 +51,7 @@ const Game = () => {
                 </div>
             </div>
             <div style={{margin: '5px'}}>
-                <button type="submit" onClick={()=>{getNextDay()}} value={'Valider la décision'} class="btn btn-primary">Valider</button>
+                <button type="submit" disabled value={'Valider la décision'} class="btn btn-primary">Valider</button>
             </div>
         </div>
     )

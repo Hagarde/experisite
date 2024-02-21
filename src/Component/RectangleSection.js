@@ -11,7 +11,7 @@ const Rectangle = (regionName) => {
         <div>{regionName}</div>
         <div 
           style={{ height: rectangleHeight[regionName]*200+'px', background: regionStyle[regionName].background, marginBottom: '1px'}}>
-          <div style={titleStyle}> </div>
+          <div style={ regionName.includes("X")? titleStyle.X :titleStyle.X}> </div>
         </div>
       </div>
     );

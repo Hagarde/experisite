@@ -3,13 +3,16 @@ export const epsilon = 0.1; // C'est la proportion de personne testée chaque jo
 export const population = 1000000;
 
 export const regionStyle = {
-    XA : {background : 'red'},
-    XB : {background :'blue'}, 
-    YA : {background :'red'},
-    YB : {background :'blue' }
+    XA : {background : 'blue'},
+    XB : {background :'green'}, 
+    YA : {background :'blue'},
+    YB : {background :'green' }
 }
 
 export const titleStyle = {
-    background:'lightgrey', 
-    margin : '4px'
+    X : 
+    {background:'yellow', 
+    margin : '4px'},
+    Y : {background:'lightgray', 
+    margin : '4px'}
 }

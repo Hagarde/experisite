@@ -40,12 +40,12 @@ const DataCard = (props) => {
         <div class="col" style={{height:'50%'}}>
             <div class="card">
                 <div class="card-body">
-                <p class="list-group-item" style={regionStyle[regionName]}> <div style={titleStyle}> Région {regionName} </div> </p>
+                <p class="list-group-item" style={regionStyle[regionName]}> <div style={regionName.includes("X") ? titleStyle.X :titleStyle.Y }> Région {regionName} </div> </p>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> Population : 1 000 000</li>
                         <li class="list-group-item"> Nouveaux Positives : {Math.floor(newPositif)}</li>
-                        <li class="list-group-item"> Positivité : {Math.floor(positivity)} {variationPositivity}</li>
-                        {accBoolean === true ? <li class="list-group-item"> Accélération : {Math.floor(acceleration)} {variationAcceleration}</li> : ''}
+                        <li class="list-group-item"> Positivité : {Math.floor(positivity*10)/10} {variationPositivity}</li>
+                        {accBoolean === true ? <li class="list-group-item"> Accélération : {Math.floor(acceleration*10)/10} {variationAcceleration}</li> : ''}
                     </ul>
                 </div>
             </div>
