@@ -81,3 +81,7 @@ export default Questionnaire;
 
 ### Les différentes routes et les différentes utilités 
 
+### Comment jouer avec les différents paramètres et où les trouver ? 
+
+
+
