@@ -44,7 +44,7 @@ const DataCard = (props) => {
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"> Population : 1 000 000</li>
                         <li class="list-group-item"> Nouveaux Positives : {Math.floor(newPositif)}</li>
-                        <li class="list-group-item"> Positivité : {Math.floor(positivity*10)/10} {variationPositivity}</li>
+                        <li class="list-group-item"> Positivité : {Math.floor(positivity*100)} % {variationPositivity}</li>
                         {accBoolean === true ? <li class="list-group-item"> Accélération : {Math.floor(acceleration*10)/10} {variationAcceleration}</li> : ''}
                     </ul>
                 </div>
