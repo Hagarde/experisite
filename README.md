@@ -4,7 +4,7 @@ Ce guide explique comment démarrer le serveur et le front-end de l'application,
 
 ## Démarrer le Serveur
 
-1. Assurez-vous d'avoir Node.js installé sur votre système.
+1. Assurez-vous d'avoir [Node.js](https://nodejs.org/en/download) installé sur votre système.
 
 2. Ouvrez votre terminal et naviguez jusqu'au répertoire contenant le code source du serveur.
 
@@ -18,26 +18,26 @@ npm install
 4. Pour démarrer le serveur :
 
 ```bash
-node serveur.js 
+npm run start
 ```
 
 ## Démarrer le front, le site
 
 1. Assurez-vous d'avoir Node.js installé sur votre système.
 
-2. Ouvrez votre terminal et naviguez jusqu'au répertoire contenant le code source du serveur.
+2. Ouvrez votre terminal et naviguez jusqu'au répertoire contenant le code source du front.
 
 3. Installez les dépendances dans le dossier associé au serveur:
 
 ``` bash
-cd serveur 
+cd client 
 npm install 
 ```
 
-4. Démarrer le serveur :
+4. Démarrer le front :
 
 ``` bash
-node server.js
+npm run start
 ```
 
 Les paramètres tels que psi, alpha et se trouvent dans le fichier `parametre.js` du serveur.
@@ -78,3 +78,16 @@ const Questionnaire = () => {
 
 export default Questionnaire;
 ```
+
+### Les différentes routes et les différentes utilités : 
+
+- ['localhost:3000/](http://localhost:3000/) --> HomePage
+- ['localhost:3000/jeu](http://localhost:3000/jeu) --> Jeu mais ne pas y aller sans avoir été sur la HomePage et cliquer sur commencer l'expérience car cela démarre réllement l'expérience tant que la technologie de cookie n'est pas mise en place 
+- ['localhost:3000/dashboard](http://localhost:3000/dashboard) --> Permet de visualiser ce qu'il y a actuellement dans la BDD sans avoir à passer par Mongodb le site 
+
+### Comment jouer avec les différents paramètres et où les trouver ? 
+
+Les paramètres : 
+- alpha, beta, pi, I0, population totale --> parametre.js au sein du serveur
+
+
