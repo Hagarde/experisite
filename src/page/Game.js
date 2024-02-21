@@ -37,7 +37,7 @@ const Game = () => {
                     <input class="horizontal-slider" type="range" max={1} min={0} step={0.01} value={inputValueRegion} onChange={(e)=>{setInputvalueRegion(e.target.value)}} />  
             </div>
             <div class="row second-row" style={{height: "70vh"}}>
-                <div class="col-1 slider-vertical ">
+                <div class="col-1 slider-vertical">
                     <input type="range" class="slider sideSlider" orient="vertical"  
                     max={1} min={0} step={0.01} value={inputValueRegionX} onChange={(e)=>{setInputvalueRegionX(e.target.value)}} /> 
                 </div>

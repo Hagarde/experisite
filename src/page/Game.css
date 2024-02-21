@@ -16,10 +16,5 @@
   transform-origin: 50% 50%;
 }
 
-input[type=range].horizontal-slider::-webkit-slider-runnable-track::before {
-  background-color: yellow; /* Changez la couleur selon vos préférences */
-}
-
-input[type=range].slider-vertical::-webkit-slider-runnable-track::before {
-  background-color: blue; /* Changez la couleur selon vos préférences */
-}
+input[type='range'].sideSlider{ accent-color: blue; }
+input[type='range'].horizontal-slider{ accent-color: yellow; }
